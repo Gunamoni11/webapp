@@ -1,0 +1,72 @@
+{
+	"env":
+	{
+		"development":
+		{
+			"presets":
+			[
+				"es2015",
+				"stage-2"
+			],
+
+			"plugins":
+			[
+			]
+		},
+
+		"client":
+		{
+			"presets":
+			[
+				"react",
+				["es2015", { modules: false }],
+				"stage-2"
+			],
+
+			"plugins":
+			[
+				"transform-promise-to-bluebird",
+				"transform-decorators-legacy",
+				"transform-react-display-name",
+				"react-hot-loader/babel"
+			],
+		},
+
+		"server":
+		{
+			"presets":
+			[
+				"react",
+				"node7",
+				"stage-2"
+			],
+
+			"plugins":
+			[
+				"transform-decorators-legacy",
+				"transform-react-display-name"
+			]
+		},
+
+		"react-intl-extract-default-messages":
+		{
+			"presets":
+			[
+				"react",
+				"es2015",
+				"stage-2"
+			],
+
+			"plugins":
+			[
+				"transform-decorators-legacy",
+
+				["react-intl",
+				{
+					"messagesDir": "./build/messages/",
+					"enforceDescriptions": true
+				}]
+			]
+		}
+	}
+}

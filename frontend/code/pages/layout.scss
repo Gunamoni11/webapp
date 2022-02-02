@@ -1,0 +1,154 @@
+// .logo
+// {
+// 	display        : none;
+// 	width          : 2em;
+// 	height         : 2em;
+// 	vertical-align : bottom;
+// 	margin-right   : 0.1em;
+// }
+
+.logo
+{
+	display : none
+}
+
+.page
+{
+	// For z-index ordering (relative to preloading screen)
+	position: relative;
+	z-index: 0;
+}
+
+@include s
+{
+	.main-header
+	{
+		font-weight : bold;
+	}
+}
+
+@include m
+{
+	.logo
+	{
+		display: block;
+
+		margin-left  : 1.2em;
+		margin-right : 1.2em;
+	}
+
+	.menu__main-page-item
+	{
+		display : none;
+	}
+}
+
+.main-header
+{
+	z-index  : var(--main-header-z-index);
+
+	display         : flex;
+	flex-direction  : row;
+	align-items     : center;
+	justify-content : center;
+
+	padding-left  : 1em;
+	padding-right : 1em;
+
+	background-color : var(--base-color-darker);
+
+	// border-bottom : 1px solid $header-border-color;
+	// box-sizing    : border-box;
+
+	.sign-in,
+	// .sign-out--fallback,
+	.rrui__menu__item,
+	// .rrui__button,
+	// .rrui__select__selected,
+	.rrui__select__toggler,
+	.logo
+	{
+		color: var(--white-color);
+
+		&:active,
+		// Only for .sign-in button (link)
+		.rrui__button__button:active
+		{
+			color: var(--base-color-lightest);
+		}
+	}
+}
+
+.main-header .rrui__menu
+{
+	margin-top: var(--header-vertically-centered-text-margin-top);
+}
+
+.rrui__slideout-menu
+{
+	z-index : var(--slideout-menu-z-index);
+}
+
+.rrui__slideout-menu-button__icon-path
+{
+	fill : var(--white-color);
+}
+
+.rrui__slideout-menu-button:active .rrui__slideout-menu-button__icon-path
+{
+	fill : var(--base-color-lightest);
+}
+
+.menu-button-container
+{
+	position : absolute;
+	top      : 0;
+	left     : 0;
+	z-index  : 1;
+
+	height : 100%;
+
+	display        : flex;
+	flex-direction : row;
+	align-items    : center;
+
+	background-color : inherit;
+}
+
+.page
+{
+	min-width: 100%;
+
+	// box-shadow will show a bug if declared here
+	// https://github.com/philipwalton/solved-by-flexbox/issues/79
+	// box-shadow : 0 0 0.35em rgba(0, 0, 0, 1);
+
+	// when adjusting this transition time also adjust it in pages/layout.js
+	transition-property        : transform;
+	transition-timing-function : ease-out;
+
+	// breaks <header/> position fixed
+	// transform  : translate3d(0px, 0px, 0px);
+}
+
+@include l
+{
+	.main-header
+	{
+		text-align: left;
+		justify-content : flex-start;
+	}
+
+	.main-header .rrui__menu
+	{
+		display: inline-block;
+	}
+
+	.logo
+	{
+		display : inline-block;
+
+		margin-left  : 0;
+		margin-right : 2em;
+	}
+}

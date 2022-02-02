@@ -1,0 +1,366 @@
+@import "constants.scss";
+
+.rrui__button
+{
+	transition : background-color var(--button-animation-duration) var(--button-animation-easing), color var(--button-animation-duration) var(--button-animation-easing), border-color var(--button-animation-duration) var(--button-animation-easing);
+}
+
+.rrui__button__activity-indicator
+{
+	left   : calc(50% - var(--button-activity-indicator-size) / 2);
+	top    : calc(50% - var(--button-activity-indicator-size) / 2);
+	width  : var(--button-activity-indicator-size);
+	height : var(--button-activity-indicator-size);
+}
+
+.rrui__button
+{
+	color : var(--base-color-darker);
+}
+
+.rrui__button:active
+{
+	color : var(--base-color);
+}
+
+.rrui__form__error
+{
+	margin-top    : calc(var(--unit) * 4);
+	margin-bottom : calc(var(--unit) * 4);
+	color         : var(--error-color-darker);
+}
+
+.ReactModal__Overlay
+{
+	z-index : var(--modal-z-index);
+}
+
+.rrui__select__options--simple-left-aligned
+{
+	width : calc(100% + 2 * var(--dropdown-item-side-padding));
+	left : calc(-1 * var(--dropdown-item-side-padding));
+}
+
+.rrui__select__options--simple-right-aligned
+{
+	width : calc(100% + 2 * var(--dropdown-item-side-padding));
+	right : calc(-1 * var(--dropdown-item-side-padding));
+}
+
+.rrui__select__options
+{
+	padding-top    : calc(2 * var(--unit));
+	padding-bottom : calc(2 * var(--unit));
+}
+
+.rrui__select__option
+{
+	padding-left  : var(--dropdown-item-side-padding);
+	padding-right : var(--dropdown-item-side-padding);
+
+	padding-top    : calc(var(--unit) * 1);
+	padding-bottom : calc(var(--unit) * 1);
+}
+
+.rrui__select__option:active
+{
+	background-color : var(--base-color-darker);
+	color            : var(--white-color);
+}
+
+.rrui__select__option-icon
+{
+	margin-right : calc(var(--unit) * 3);
+}
+
+.rrui__select__separator
+{
+	height           : var(--input-separator-width);
+	background-color : var(--gray-color-darker);
+}
+
+.rrui__select__separator-option
+{
+	padding-top      : calc(var(--unit) * 2);
+	padding-bottom   : calc(var(--unit) * 2);
+}
+
+.rrui__select__option--focused
+{
+	background-color: var(--gray-color-light);
+}
+
+.rrui__select__selected
+{
+	border-bottom: var(--input-border-width) solid var(--gray-color);
+}
+
+.rrui__select__selected:focus
+{
+	border-bottom-color: var(--accent-color);
+}
+
+.rrui__select__selected:active
+{
+	color: var(--base-color-darker);
+}
+
+.rrui__select__selected--expanded
+{
+	color: var(--base-color-darker);
+}
+
+.rrui__select__selected--nothing,
+/* For CSS rule specificity */
+.rrui__select--expanded .rrui__select__selected--nothing
+{
+	color: var(--gray-color-darkest);
+}
+
+.rrui__select--expanded .rrui__select__selected--autocomplete
+{
+	color: var(--black-color);
+}
+
+/* Not introducing an animation on `.rrui__select__option`
+   because it would introduce a little clutter due to
+   focused option animation in autocomplete mode */
+.rrui__select__selected
+{
+	transition : background-color var(--button-animation-duration) var(--button-animation-easing), color var(--button-animation-duration) var(--button-animation-easing);
+}
+
+.rrui__select__arrow
+{
+	color: var(--gray-color-darker);
+}
+
+/* Checkbox label color */
+.rrui__checkbox__label:active
+{
+	color: var(--base-color-darker);
+}
+
+/* Checkmark color */
+.rrui__checkbox__checkmark path
+{
+	stroke : var(--base-color-darker);
+}
+
+.rrui__checkbox__box
+{
+	border : var(--input-border-width) solid #cfcfcf;
+}
+
+/* Checkbox border color */
+.rrui__checkbox__input:active + .rrui__checkbox__box
+{
+	border-color: var(--base-color-darker);
+}
+
+/* Invalid checkbox border color */
+.rrui__checkbox--invalid .rrui__checkbox__box
+{
+	border-color: var(--error-color);
+}
+
+.rrui__segmented-control__option
+{
+	padding-left   : calc(var(--unit) * 1.5);
+	padding-right  : calc(var(--unit) * 1.5);
+
+	color  : var(--black-color);
+	border : var(--input-border-width) solid var(--base-color-darker);
+}
+
+.rrui__segmented-control__option:active
+{
+	color            : var(--white-color);
+	background-color : var(--base-color);
+}
+
+.rrui__segmented-control__option--selected
+{
+	color            : var(--white-color);
+	background-color : var(--base-color-darker);
+}
+
+.rrui__modal__overlay--fullscreen
+{
+	background-color : var(--white-color);
+}
+
+.rrui__modal__content
+{
+	background-color : var(--white-color);
+}
+
+.rrui__modal__content-body
+{
+	margin : var(--modal-padding);
+}
+
+.rrui__form__actions
+{
+	margin-top : calc(var(--unit) * 4);
+}
+
+.rrui__form__actions .rrui__button
+{
+	margin-right : calc(var(--unit) * 4);
+}
+
+.rrui__form__field
+{
+	margin-bottom : calc(var(--unit) * 2);
+}
+
+.rrui__input:not(.rrui__input--multiline),
+.rrui__input-label
+{
+	height : calc(var(--unit) * 6);
+}
+
+.rrui__input-error
+{
+	padding-top : calc(2 * var(--unit));
+	color       : var(--error-color-darker);
+}
+
+/* Focused input label */
+.rrui__text-input__input:focus  + .rrui__input-label,
+.rrui__select__selected:focus   + .rrui__input-label,
+.rrui__date-picker__input:focus + .rrui__input-label
+{
+	color: var(--accent-color);
+}
+
+
+.rrui__text-input__label--invalid
+{
+	color: var(--error-color-darker);
+}
+
+.rrui__text-input__input--invalid,
+.rrui__text-input__input--invalid:focus
+{
+	border-color: var(--error-color);
+}
+
+.rrui__text-input__label--placeholder
+{
+	color     : var(--gray-color-darkest);
+}
+
+.rrui__text-input__input--empty:focus + .rrui__input-label--floating
+{
+	color: var(--gray-color-darkest);
+}
+
+.rrui__tooltip
+{
+	color: var(--white-color);
+	background: var(--black-color);
+
+	border-radius: var(--border-radius);
+
+	padding-left   : calc(var(--unit) * 2);
+	padding-right  : calc(var(--unit) * 2);
+	padding-top    : calc(var(--unit) * 1);
+	padding-bottom : calc(var(--unit) * 1);
+}
+
+.rrui__snackbar
+{
+	background : var(--black-color);
+	color      : var(--white-color);
+
+	border-top-left-radius  : var(--border-radius);
+	border-top-right-radius : var(--border-radius);
+
+	padding-left   : calc(var(--unit) * 3);
+	padding-right  : calc(var(--unit) * 3);
+	padding-top    : calc(var(--unit) * 2);
+	padding-bottom : calc(var(--unit) * 2);
+}
+
+.rrui__date-picker__collapsible
+{
+	background-color : var(--white-color);
+}
+
+.rrui__slideout-menu-button
+{
+	padding     : calc(var(--unit) * 1.5);
+}
+
+.rrui__slideout-menu-button__icon
+{
+	width   : calc(var(--unit) * 5);
+	height  : calc(var(--unit) * 5);
+}
+
+.rrui__slideout-menu-button__icon-path
+{
+	fill: var(--black-color);
+}
+
+.rrui__slideout-menu-button:active .rrui__slideout-menu-button__icon-path
+{
+	fill: var(--accent-color-darker);
+}
+
+.rrui__input
+{
+	height : calc(var(--unit) * 5);
+}
+
+.rrui__form__heading
+{
+	margin-top    : 0;
+	margin-bottom : calc(var(--unit) * 6);
+}
+
+.rrui__form__field
+{
+	margin-bottom: calc(var(--unit) * 5);
+
+	&:last-child
+	{
+		margin-bottom: 0;
+	}
+}
+
+.rrui__form__field-description
+{
+	margin-top    : 0;
+	margin-bottom : calc(var(--unit) * 3);
+}
+
+.rrui__button,
+.rrui__button__button
+{
+	height : auto;
+}
+
+// .rrui__checkbox__checkmark
+// {
+// 	top    : -0.1em;
+// 	width  : 0.8em;
+// 	height : 0.8em;
+// }
+
+.rrui__snackbar--error
+{
+	background-color : var(--error-color-darker);
+}
+
+.rrui__switch__groove
+{
+	color: var(--base-color-slightly-darker);
+}
+
+.rrui__tooltip
+{
+	z-index : var(--tooltip-z-index);
+}

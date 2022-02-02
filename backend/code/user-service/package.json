@@ -1,0 +1,17 @@
+{
+  "name": "webapp-user-service",
+  "private": true,
+  "version": "1.0.0",
+  "description": "Gets users' info, and updates that info",
+  "main": "entry.js",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/halt-hammerzeit/webapp.git"
+  },
+  "homepage": "https://github.com/halt-hammerzeit/webapp",
+  "author": "Halt Hammerzeit",
+  "license": "MIT",
+  "engines": {
+    "node": "6.0.0"
+  }
+}

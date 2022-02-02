@@ -1,0 +1,243 @@
+@import "constants.scss";
+
+*,
+*:before,
+*:after
+{
+	box-sizing : border-box;
+}
+
+html
+{
+	// https://developers.google.com/web/updates/2013/12/300ms-tap-delay-gone-away
+	-ms-touch-action : manipulation;
+	touch-action     : manipulation;
+}
+
+body
+{
+	margin : 0;
+
+	// Always show vertical scrollbar to avoid page width jumping
+	overflow-y : scroll;
+}
+
+// // This will be replaced with the contents of the mixin
+// // when CSS native variables will be supported in all major browsers.
+// // http://caniuse.com/#search=css%20var
+// set_css_variable_font_size(var(--font-size));
+
+// just background on .page is not enough
+// because it won't stretch to fill all the height
+// https://github.com/philipwalton/solved-by-flexbox/issues/79
+.page, body
+{
+	background-color: var(--gray-color-light);
+}
+
+// Roboto could be used instead of Arial,
+// but Arial turned out to have better kerning.
+@include set_font_2(Arial, Helvetica);
+
+/* Internet Explorer adds borders around all images */
+img
+{
+	border : none;
+}
+
+ul
+{
+	margin          : 0;
+	padding         : 0;
+	list-style-type : none;
+}
+
+// input[type="checkbox"], input[type="radio"]
+// {
+// 	width: 0.9em;
+// 	height: 0.9em;
+//
+// 	margin-right: 0.3em;
+// 	margin-bottom: 0.2em;
+//
+// 	vertical-align: bottom;
+// }
+
+// input[type="checkbox"]
+// {
+// 	margin-bottom: 0.2em;
+// }
+
+// input[type="radio"]
+// {
+// 	margin-bottom: 0.16em;
+// }
+
+select,
+.rrui__text-input__input,
+.date-picker
+{
+	display : block;
+	padding : 0;
+	border        : none;
+	border-bottom : var(--input-border-width) solid var(--gray-color);
+	transition    : border 0.1s;
+}
+
+// // This will be replaced with the contents of the mixin
+// // when CSS native variables will be supported in all major browsers.
+// // http://caniuse.com/#search=css%20var
+// set_css_variable_input_width(var(--input-width));
+
+.rrui__text-input__input
+{
+	margin: 0;
+	appearance: none;
+	box-sizing: border-box;
+
+	&:focus
+	{
+		outline: none;
+		border-bottom: var(--input-border-width) solid var(--accent-color);
+	}
+
+	// When changing this placeholder color
+	// also change ".text-input label" color
+
+	&::placeholder
+	{
+		color   : var(--gray-color-dark);
+		opacity : 1 !important;
+	}
+
+	/* Chrome/Opera/Safari */
+	&::-webkit-input-placeholder
+	{
+		color   : var(--gray-color-dark);
+		opacity : 1 !important;
+	}
+
+	/* Firefox 19+ */
+	&::-moz-placeholder
+	{
+		color   : var(--gray-color-dark);
+		opacity : 1 !important;
+	}
+
+	/* Firefox 18- */
+	&:-moz-placeholder
+	{
+		color   : var(--gray-color-dark);
+		opacity : 1 !important;
+	}
+
+	/* IE 10+ */
+	&:-ms-input-placeholder
+	{
+		color   : var(--gray-color-dark);
+		opacity : 1 !important;
+	}
+}
+
+.rrui__text-input__input--disabled
+{
+	background-color : white;
+}
+
+.rrui__text-input__input--invalid:focus
+{
+	border-color: var(--error-color);
+}
+
+select
+{
+	&:focus
+	{
+		outline: none;
+		border-bottom: var(--input-border-width) solid var(--base-color-darker);
+	}
+}
+
+h1, h2
+{
+	font-weight : normal;
+}
+
+a
+{
+	color: var(--base-color-darkest);
+	text-decoration: none;
+
+	&:active
+	{
+		color: var(--base-color-darker);
+	}
+}
+
+// button
+// {
+// 	background : none;
+// 	border     : none;
+// 	outline    : none;
+// 	padding    : 0;
+//
+// 	white-space: nowrap;
+//
+// 	color: var(--base-color-darker);
+//
+// 	&:active
+// 	{
+// 		color: var(--base-color);
+// 	}
+// }
+
+table
+{
+	border-spacing  : 0;
+	border-collapse : collapse;
+}
+
+th, td
+{
+	padding     : 1em;
+	border-top  : 1px solid #ddd;
+}
+
+th
+{
+	vertical-align : bottom;
+	border-bottom  : 2px solid #ddd;
+	border-top     : 0;
+	text-align     : left;
+
+	color       : #7f7f7f;
+	font-weight : normal;
+}
+
+.sticky
+{
+	z-index: 1;
+}
+
+.loading
+{
+	display         : flex;
+	align-items     : center;
+	justify-content : center;
+
+	position : fixed;
+	left     : 0;
+	top      : 0;
+
+	width    : 100vw;
+	height   : 100vh;
+
+	background-color : white;
+}
+
+@include s
+{
+	// Roboto could be used instead of Arial,
+	// but Arial turned out to have better kerning.
+	@include set_font_3(Scada, Arial, Helvetica);
+}

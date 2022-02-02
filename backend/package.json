@@ -1,0 +1,217 @@
+{
+  "name": "webapp-backend",
+  "private": true,
+  "version": "1.0.0",
+  "description": "Various web services",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/halt-hammerzeit/webapp.git"
+  },
+  "homepage": "https://github.com/halt-hammerzeit/webapp",
+  "dependencies": {
+    "babel-plugin-transform-es2015-destructuring": "^6.9.0",
+    "babel-plugin-transform-object-rest-spread": "^6.8.0",
+    "better-npm-run": "0.0.8",
+    "bytes": "^2.1.0",
+    "ioredis": "^3.0.0-0",
+    "knex": "^0.12.6",
+    "knex-postgis": "^0.2.0",
+    "mongodb": "^2.1.7",
+    "mongodb-migrate": "^2.0.0",
+    "pg": "^6.1.2",
+    "uuid": "^2.0.3",
+    "web-service": "^0.5.6"
+  },
+  "scripts": {
+    "development": "npm-run-all --parallel development:log-service:delayed development:authentication-service:delayed development:user-service:delayed development:password-service:delayed development:image-service:delayed development:mail-service:delayed development:realtime-service:delayed development:access-token-service:delayed development:social-service:delayed development:web-server:delayed",
+    "development:log-service": "better-npm-run development:log-service",
+    "development:access-token-service": "better-npm-run development:access-token-service",
+    "development:realtime-service": "better-npm-run development:realtime-service",
+    "development:authentication-service": "better-npm-run development:authentication-service",
+    "development:user-service": "better-npm-run development:user-service",
+    "development:password-service": "better-npm-run development:password-service",
+    "development:image-service": "better-npm-run development:image-service",
+    "development:mail-service": "better-npm-run development:mail-service",
+    "development:social-service": "better-npm-run development:social-service",
+    "development:web-server": "better-npm-run development:web-server",
+    "development:log-service:delayed": "npm-run-all delay development:log-service",
+    "development:access-token-service:delayed": "npm-run-all delay delay development:access-token-service",
+    "development:image-service:delayed": "npm-run-all delay delay delay development:image-service",
+    "development:password-service:delayed": "npm-run-all delay delay delay delay development:password-service",
+    "development:authentication-service:delayed": "npm-run-all delay delay delay delay delay development:authentication-service",
+    "development:user-service:delayed": "npm-run-all delay delay delay delay delay delay development:user-service",
+    "development:mail-service:delayed": "npm-run-all delay delay delay delay delay delay delay development:mail-service",
+    "development:realtime-service:delayed": "npm-run-all delay delay delay delay delay delay delay delay development:realtime-service",
+    "development:social-service:delayed": "npm-run-all delay delay delay delay delay delay delay delay delay development:social-service",
+    "development:web-server:delayed": "npm-run-all delay delay delay delay delay delay delay delay delay delay development:web-server",
+    "delay": "node ./code/sleep 600",
+    "production": "npm-run-all --parallel production:log-service production:authentication-service production:user-service production:password-service production:image-service production:mail-service production:realtime-service production:access-token-service production:social-service production:web-server",
+    "production:log-service": "better-npm-run production:log-service",
+    "production:access-token-service": "better-npm-run production:access-token-service",
+    "production:authentication-service": "better-npm-run production:authentication-service",
+    "production:user-service": "better-npm-run production:user-service",
+    "production:password-service": "better-npm-run production:password-service",
+    "production:image-service": "better-npm-run production:image-service",
+    "production:mail-service": "better-npm-run production:mail-service",
+    "production:realtime-service": "better-npm-run production:realtime-service",
+    "production:social-service": "better-npm-run production:social-service",
+    "production:web-server": "better-npm-run production:web-server",
+    "postgresql-knex-init": "node database/sql/knex-init.js",
+    "postgresql-migrate": "cd database/sql && knex migrate:latest",
+    "postgresql-rollback": "cd database/sql && knex migrate:rollback",
+    "postgresql-checkpoint": "cd database/sql && knex migrate:make",
+    "postgresql-make-seed": "cd database/sql && knex seed:make",
+    "postgresql-seed": "cd database/sql && knex seed:run",
+    "mongodb-migrate": "./node_modules/.bin/mongo-migrate --runMongoMigrate --chdir database/mongodb --config mongodb-migrate.config.js --dbPropName database up",
+    "mongodb-rollback": "./node_modules/.bin/mongo-migrate --runMongoMigrate --chdir database/mongodb --config mongodb-migrate.config.js --dbPropName database down",
+    "mongodb-checkpoint": "./node_modules/.bin/mongo-migrate --runMongoMigrate --chdir database/mongodb --config mongodb-migrate.config.js --dbPropName database create",
+    "install-recursive": "node ../automation/install"
+  },
+  "betterScripts": {
+    "development:web-server": {
+      "command": "\"../node_modules/.bin/nodemon\" ./code/web-server/entry.js  --watch ./code/web-server --watch ./code/common",
+      "env": {
+        "NODE_ENV": "development",
+        "BABEL_ENV": "server"
+      }
+    },
+    "development:image-service": {
+      "command": "\"../node_modules/.bin/nodemon\" ./code/image-service/entry.js --watch ./code/image-service --watch ./code/common",
+      "env": {
+        "NODE_ENV": "development",
+        "BABEL_ENV": "server"
+      }
+    },
+    "development:password-service": {
+      "command": "\"../node_modules/.bin/nodemon\" ./code/password-service/entry.js --watch ./code/password-service --watch ./code/common",
+      "env": {
+        "NODE_ENV": "development",
+        "BABEL_ENV": "server"
+      }
+    },
+    "development:user-service": {
+      "command": "\"../node_modules/.bin/nodemon\" ./code/user-service/entry.js --watch ./code/user-service --watch ./code/common",
+      "env": {
+        "NODE_ENV": "development",
+        "BABEL_ENV": "server"
+      }
+    },
+    "development:authentication-service": {
+      "command": "\"../node_modules/.bin/nodemon\" ./code/authentication-service/entry.js --watch ./code/authentication-service --watch ./code/common",
+      "env": {
+        "NODE_ENV": "development",
+        "BABEL_ENV": "server"
+      }
+    },
+    "development:mail-service": {
+      "command": "\"../node_modules/.bin/nodemon\" ./code/mail-service/entry.js --watch ./code/mail-service --watch ./code/common",
+      "env": {
+        "NODE_ENV": "development",
+        "BABEL_ENV": "server"
+      }
+    },
+    "development:realtime-service": {
+      "command": "\"../node_modules/.bin/nodemon\" ./code/realtime-service/entry.js --watch ./code/realtime-service --watch ./code/common",
+      "env": {
+        "NODE_ENV": "development",
+        "BABEL_ENV": "server"
+      }
+    },
+    "development:log-service": {
+      "command": "\"../node_modules/.bin/nodemon\" ./code/log-service/entry.js --watch ./code/log-service --watch ./code/common",
+      "env": {
+        "NODE_ENV": "development",
+        "BABEL_ENV": "server"
+      }
+    },
+    "development:access-token-service": {
+      "command": "\"../node_modules/.bin/nodemon\" ./code/access-token-service/entry.js --watch ./code/access-token-service --watch ./code/common",
+      "env": {
+        "NODE_ENV": "development",
+        "BABEL_ENV": "server"
+      }
+    },
+    "development:social-service": {
+      "command": "\"../node_modules/.bin/nodemon\" ./code/social-service/entry.js --watch ./code/social-service --watch ./code/common",
+      "env": {
+        "NODE_ENV": "development",
+        "BABEL_ENV": "server"
+      }
+    },
+    "production:web-server": {
+      "command": "node --harmony ./code/web-server/entry.js",
+      "env": {
+        "NODE_ENV": "production",
+        "BABEL_ENV": "server"
+      }
+    },
+    "production:image-service": {
+      "command": "node --harmony ./code/image-service/entry.js",
+      "env": {
+        "NODE_ENV": "production",
+        "BABEL_ENV": "server"
+      }
+    },
+    "production:password-service": {
+      "command": "node --harmony ./code/password-service/entry.js",
+      "env": {
+        "NODE_ENV": "production",
+        "BABEL_ENV": "server"
+      }
+    },
+    "production:user-service": {
+      "command": "node --harmony ./code/user-service/entry.js",
+      "env": {
+        "NODE_ENV": "production",
+        "BABEL_ENV": "server"
+      }
+    },
+    "production:authentication-service": {
+      "command": "node --harmony ./code/authentication-service/entry.js",
+      "env": {
+        "NODE_ENV": "production",
+        "BABEL_ENV": "server"
+      }
+    },
+    "production:mail-service": {
+      "command": "node --harmony ./code/mail-service/entry.js",
+      "env": {
+        "NODE_ENV": "production",
+        "BABEL_ENV": "server"
+      }
+    },
+    "production:realtime-service": {
+      "command": "node --harmony ./code/realtime-service/entry.js",
+      "env": {
+        "NODE_ENV": "production",
+        "BABEL_ENV": "server"
+      }
+    },
+    "production:social-service": {
+      "command": "node --harmony ./code/social-service/entry.js",
+      "env": {
+        "NODE_ENV": "production",
+        "BABEL_ENV": "server"
+      }
+    },
+    "production:log-service": {
+      "command": "node --harmony ./code/log-service/entry.js",
+      "env": {
+        "NODE_ENV": "production",
+        "BABEL_ENV": "server"
+      }
+    },
+    "production:access-token-service": {
+      "command": "node --harmony ./code/access-token-service/entry.js",
+      "env": {
+        "NODE_ENV": "production",
+        "BABEL_ENV": "server"
+      }
+    }
+  },
+  "author": "Halt Hammerzeit",
+  "license": "MIT",
+  "engines": {
+    "node": "6.0.0"
+  }
+}

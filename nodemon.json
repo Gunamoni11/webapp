@@ -1,0 +1,21 @@
+{
+	"ignore":
+	[
+		".git",
+		"node_modules/**/*",
+		"**/node_modules/**/*",
+		"frontend/build/**/*"
+	],
+	"env":
+	{
+		"NODE_ENV": "development",
+		"BABEL_ENV": "server"
+	},
+	"execMap":
+	{
+		"js": "node --harmony"
+	},
+	"legacyWatch": false,
+	"verbose": true,
+	"dump": false
+}

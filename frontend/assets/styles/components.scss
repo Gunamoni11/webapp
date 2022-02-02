@@ -1,0 +1,109 @@
+@import "constants.scss";
+
+// a <ul/> with errors
+.errors
+{
+	margin-top    : calc(var(--unit) * 6);
+	margin-bottom : calc(var(--unit) * 6);
+
+	color      : var(--error-color-darker);
+	// text-align : center;
+}
+
+.error
+{
+	color : var(--error-color-darker);
+}
+
+.card__actions
+{
+	float: right;
+
+	.card__action:not(:first-child)
+	{
+		margin-left: 1em;
+	}
+}
+
+.form__error-details
+{
+	color : var(--black-color);
+}
+
+.error-page
+{
+	text-align: center;
+
+	h1
+	{
+		margin-top: 4rem;
+	}
+}
+
+.error-page__page-link
+{
+	display    : inline-block;
+
+	max-width     : 100%;
+	text-overflow : ellipsis;
+	overflow      : hidden;
+}
+
+.content-section
+{
+	p:first-child
+	{
+		margin-top: 0;
+	}
+
+	p:last-child
+	{
+		margin-bottom: 0;
+	}
+}
+
+// https://material-design.storage.googleapis.com/publish/material_v_9/0Bzhp5Z4wHba3dEZTUF9idzBHMWc/patterns_errors_userinput19.png
+.content-section__errors
+{
+	color            : var(--error-color-darker);
+	background-color : var(--gray-color-light);
+
+	border-bottom: 1px solid var(--gray-color-darker);
+}
+
+.content-section__errors--top
+{
+	border-top-left-radius  : var(--card-border-radius);
+	border-top-right-radius : var(--card-border-radius);
+}
+
+.button--primary
+{
+	color : var(--accent-color);
+
+	&:active
+	{
+		color : var(--accent-color-lighter);
+	}
+}
+
+.card__action
+{
+	position : relative;
+	top      : -0.4em;
+
+	.rrui__button__button
+	{
+		text-transform : lowercase;
+	}
+}
+
+.rrui__button
+{
+	height : calc(var(--unit) * 6);
+
+	.rrui__button__button
+	{
+		height : 100%;
+	}
+}

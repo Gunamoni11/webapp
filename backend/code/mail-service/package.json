@@ -1,0 +1,25 @@
+{
+  "name": "webapp-mail-service",
+  "private": true,
+  "version": "1.0.0",
+  "description": "Sends emails",
+  "main": "entry.js",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/halt-hammerzeit/webapp.git"
+  },
+  "dependencies": {
+    "html-to-text": "^3.1.0",
+    "intl": "^1.0.0",
+    "intl-messageformat": "^1.3.0",
+    "juice": "^4.0.2",
+    "nodemailer": "^2.7.2",
+    "nunjucks": "^3.0.0"
+  },
+  "homepage": "https://github.com/halt-hammerzeit/webapp",
+  "author": "Halt Hammerzeit",
+  "license": "MIT",
+  "engines": {
+    "node": "6.0.0"
+  }
+}

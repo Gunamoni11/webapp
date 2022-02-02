@@ -1,0 +1,91 @@
+// theming
+
+// https://www.smashingmagazine.com/2016/04/web-developer-guide-color/
+// http://paletton.com/
+
+:root
+{
+	--base-color-lightest        : #FFC474;
+	--base-color-lighter         : #FFB24B;
+	--base-color                 : #fa9c20;
+	--base-color-slightly-darker : #EB8D10;
+	--base-color-darker          : #D07904;
+	--base-color-darkest         : #A45E00;
+
+	--accent-color-lightest : #94EBF7;
+	--accent-color-lighter  : #53D5E7;
+	--accent-color          : #03B2CB;
+	--accent-color-darker   : #018395;
+	--accent-color-darkest  : #016674;
+
+	--gray-color-lightest   : #FAF8F6;
+	--gray-color-light      : #f6f1ec;
+	--gray-color-lighter    : #E8DED3;
+	--gray-color            : #E0D3C5;
+	--gray-color-darker     : #c4bfb8;
+	--gray-color-dark       : #B3AA9F;
+	--gray-color-darkest    : #918d88;
+
+	--black-color-light     : #786D60;
+	--black-color           : #4e3d27;
+
+	--white-color           : #ffffff;
+
+	--error-color-lighter   : #FF1300;
+	--error-color           : #EB2010;
+	--error-color-darker    : #D30F00;
+
+	--unit : 0.3rem;
+
+	--input-border-width         : 2pt;
+	--input-separator-width      : 1pt;
+
+	--dropdown-item-side-padding : calc(4 * var(--unit));
+
+	--header-vertically-centered-text-margin-top: 0.1em;
+
+	--border-radius      : 3pt;
+	--card-border-radius : 0.2rem;
+
+	--shadow : 0 2px 5px 0 rgba(0, 0, 0, 0.16), 0 2px 10px 0 rgba(0, 0, 0, 0.12);
+
+	--modal-padding : calc(var(--unit) * 4);
+
+	--button-animation-duration : 30ms;
+	--button-animation-easing   : ease-out;
+	--button-icon-transition    : fill var(--button-animation-duration) var(--button-animation-easing);
+	--button-activity-indicator-size : 0.9em;
+
+	--border : 1px solid rgba(0, 0, 0, 0.1);
+
+	--icon-liftup       : 0.05em;
+	--icon-right-margin : 0.3em;
+
+	--main-header-z-index   : 10;
+	--slideout-menu-z-index : 20;
+	--modal-z-index         : 30;
+	--tooltip-z-index       : 40;
+	--preloading-z-index    : 50;
+}
+
+// WHQD displays (2560 × 1440)
+$extra-extra-large-screen-min-width : 1600pt;
+// FullHD displays (1920 × 1080)
+$extra-large-screen-min-width       : 1340pt;
+// Huge tablets in landscape
+$large-screen-min-width             : 880pt;
+// Tablets in landscape
+$medium-screen-min-width            : 610pt;
+// Tablets in portrait
+$small-screen-min-width             : 380pt;
+// Bigass phones
+$extra-small-screen-min-width       : 290pt;
+// Big phones
+$extra-extra-small-screen-min-width : 255pt;
+// Medium phones
+$extra-extra-extra-small-screen-min-width : 230pt;
+// Smaller phones
+$extra-extra-extra-extra-small-screen-min-width : 205pt;
+// Smaller phones
+$extra-extra-extra-extra-extra-small-screen-min-width : 180pt;
+// Small phones ...

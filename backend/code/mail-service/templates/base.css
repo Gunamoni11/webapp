@@ -1,0 +1,31 @@
+h1
+{
+	font-size: 140%;
+	margin-top: 1.0em;
+	margin-bottom: 1.2em;
+}
+
+a
+{
+	text-decoration: none;
+	color: #A45E00; /* var(--base-color-darkest) */
+}
+
+a:active
+{
+	color: #D07904; /* var(--base-color-darker) */
+}
+
+a:hover
+{
+	text-decoration: underline;
+}
+
+.button
+{
+	padding: 1em;
+	background: #0084B0;
+	color: white;
+	border-radius: 0.2em;
+	text-decoration: none;
+}

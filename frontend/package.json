@@ -1,0 +1,140 @@
+{
+  "name": "webapp-frontend",
+  "private": true,
+  "version": "1.0.0",
+  "description": "What's run in a web browser (React app) + isomorphic rendering",
+  "main": "code/application.js",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/halt-hammerzeit/webapp.git"
+  },
+  "homepage": "https://github.com/halt-hammerzeit/webapp",
+  "dependencies": {
+    "autoprefixer": "^6.3.7",
+    "babel-cli": "^6.6.5",
+    "babel-loader": "^7.1.1",
+    "babel-plugin-react-intl": "^2.1.1",
+    "babel-plugin-react-transform": "^2.0.0",
+    "babel-plugin-transform-react-display-name": "^6.5.0",
+    "babel-preset-react": "^6.5.0",
+    "babili-webpack-plugin": "^0.1.2",
+    "better-npm-run": "0.0.8",
+    "classnames": "^2.2.3",
+    "clean-webpack-plugin": "^0.1.6",
+    "css-loader": "^0.26.1",
+    "date-fns": "^1.23.0",
+    "expose-loader": "^0.7.0",
+    "express": "^4.13.1",
+    "extract-text-webpack-plugin": "^2.0.0-rc.3",
+    "file-loader": "^0.8.1",
+    "filesize-parser": "^1.3.1",
+    "glob": "^7.0.0",
+    "hoist-non-react-statics": "^1.0.3",
+    "html-loader": "^0.4.4",
+    "intl": "^1.2.5",
+    "intl-locales-supported": "^1.0.0",
+    "intl-messageformat": "^1.3.0",
+    "javascript-time-ago": "^0.4.1",
+    "json-loader": "^0.5.2",
+    "markdown-loader": "^2.0.0",
+    "node-sass": "^4.1.1",
+    "postcss-calc": "^5.3.1",
+    "postcss-custom-properties": "^5.0.1",
+    "postcss-hexrgba": "^0.2.1",
+    "postcss-loader": "^2.0.6",
+    "react": "^15.4.2",
+    "react-color": "^2.11.4",
+    "react-day-picker": "^3.1.1",
+    "react-dnd": "^2.1.4",
+    "react-dnd-html5-backend": "^2.1.2",
+    "react-dom": "^15.4.2",
+    "react-intl": "^2.1.2",
+    "react-isomorphic-render": "^11.0.33",
+    "react-redux": "^5.0.2",
+    "react-responsive-ui": "^0.8.3",
+    "react-router": "^3.0.0",
+    "react-sticky": "^5.0.0",
+    "react-styling": "^1.6.1",
+    "react-svg-loader": "^2.0.0-alpha.1",
+    "react-tap-event-plugin": "^2.0.1",
+    "react-time-ago": "^0.3.6",
+    "redux": "^3.0.0",
+    "rimraf": "^2.5.2",
+    "sass-loader": "^6.0.5",
+    "simpler-redux-form": "^0.3.28",
+    "style-loader": "^0.12.4",
+    "url-loader": "^0.5.5",
+    "webpack": "^2.6.1",
+    "webpack-dev-middleware": "^1.9.0",
+    "webpack-isomorphic-tools": "^3.0.3",
+    "webpack-visualizer-plugin": "^0.1.11"
+  },
+  "devDependencies": {
+    "redux-devtools": "^3.3.1",
+    "redux-devtools-dock-monitor": "^1.1.1",
+    "redux-devtools-log-monitor": "^1.0.11",
+    "redux-logger": "^2.5.2",
+    "webpack-dev-middleware": "^1.4.0",
+    "webpack-hot-middleware": "^2.5.1",
+    "react-hot-loader": "^3.0.0-beta.6"
+  },
+  "scripts": {
+    "development": "npm-run-all --parallel development:webpack:optimized development:rendering-service",
+    "development:webpack:optimized": "npm-run-all development:webpack:dll development:webpack",
+    "development:webpack:dll": "webpack --color --display-error-details --config \"webpack/dll.babel.js\"",
+    "development:webpack": "better-npm-run development:webpack",
+    "development:rendering-service": "better-npm-run development:rendering-service",
+    "production": "npm-run-all react-intl:clean-messages react-intl:babel-run react-intl:default-translation production:webpack production:rendering-service",
+    "production:webpack": "better-npm-run production:webpack",
+    "production:rendering-service": "better-npm-run production:rendering-service",
+    "react-intl:default-translation": "babel-node ./automation/international/react-intl-default-translation.js",
+    "react-intl:clean-messages": "rimraf ./build/messages",
+    "react-intl:babel-run": "better-npm-run react-intl:babel-run",
+    "install-recursive": "node ../automation/install"
+  },
+  "betterScripts": {
+    "development:webpack": {
+      "command": "babel-node \"webpack/development server.js\"",
+      "env": {
+        "BABEL_ENV": "client"
+      }
+    },
+    "production:webpack": {
+      "command": "webpack --color --progress --display-error-details --config \"webpack/production build.entry.js\"",
+      "env": {
+        "NODE_ENV": "production",
+        "BABEL_ENV": "client"
+      }
+    },
+    "react-intl:babel-run": {
+      "command": "babel --out-file ./build/react-intl-babel-run.js ./code",
+      "env": {
+        "NODE_ENV": "production",
+        "BABEL_ENV": "react-intl-extract-default-messages"
+      }
+    },
+    "development:rendering-service": {
+      "command": "\"../node_modules/.bin/nodemon\" ./page-server/entry.js --watch ./page-server --watch ./code --watch ../code",
+      "env": {
+        "BABEL_ENV": "server"
+      }
+    },
+    "production:rendering-service": {
+      "command": "node --harmony ./page-server/entry.js",
+      "env": {
+        "NODE_ENV": "production",
+        "BABEL_ENV": "server"
+      }
+    }
+  },
+  "author": "Halt Hammerzeit",
+  "license": "MIT",
+  "engines": {
+    "node": "6.0.0"
+  },
+  "browserslist": [
+    "last 2 versions",
+    "iOS >= 7",
+    "Android >= 4"
+  ]
+}

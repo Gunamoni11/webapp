@@ -1,0 +1,59 @@
+.upload-picture
+{
+	position : relative;
+}
+
+.upload-picture
+{
+	transition: box-shadow 100ms ease-out;
+}
+
+.layout--dragging .upload-picture--accepts-drop
+{
+	box-shadow: 0 0 0 0.15rem var(--accent-color-lighter);
+}
+
+.upload-picture__droppable-overlay
+{
+	opacity : 0.5;
+	transition : background-color 100ms ease-out;
+}
+
+.upload-picture__droppable-overlay--can-drop
+{
+	background-color : var(--accent-color-lighter);
+}
+
+// CSS selector specificity for replacing border color
+.layout--dragging .upload-picture--can-drop
+{
+	border-color     : var(--accent-color-lighter);
+}
+
+.upload-picture__droppable-overlay--cannot-drop
+{
+	background-color: var(--error-color);
+}
+
+.upload-picture__change-overlay
+{
+	display         : flex;
+	align-items     : center;
+	justify-content : center;
+	text-align      : center;
+	color           : var(--white-color);
+	text-shadow     : 0 0.05em 0.1em rgba(0, 0, 0, 0.75);
+
+	// background-color : rgba(var(--black-color), 0.5);
+	background-color : rgba(#4e3d27, 0.5);
+}
+
+.upload-picture__change-overlay--uploaded
+{
+	background-color : transparent;
+}
+
+.upload-picture__indicator
+{
+	color : var(--white-color);
+}

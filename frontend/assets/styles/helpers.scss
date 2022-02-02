@@ -1,0 +1,287 @@
+@mixin set_font($family)
+{
+	html, body, button, input, textarea, select
+	{
+		font-family : $family;
+		color       : var(--black-color);
+	}
+}
+
+@mixin set_font_2($family1, $family2)
+{
+	html, body, button, input, textarea, select
+	{
+		font-family : $family1, $family2;
+		color       : var(--black-color);
+	}
+}
+
+@mixin set_font_3($family1, $family2, $family3)
+{
+	html, body, button, input, textarea, select
+	{
+		font-family : $family1, $family2, $family3;
+		color       : var(--black-color);
+	}
+}
+
+// Could be achieved using CSS native variables ("CSS custom properties")
+// if all major browsers supported that CSS feature.
+// http://caniuse.com/#search=css%20var
+@mixin set_css_variable_header_height($value)
+{
+	.main-header, .poster-picture--header
+	{
+		min-height: $value;
+		max-height: $value;
+	}
+
+	.poster-picture--header
+	{
+		width: $value;
+	}
+
+	body
+	{
+		padding-top: $value;
+	}
+
+	.page
+	{
+		min-height: calc(100vh - #{$value});
+	}
+}
+
+// Could be achieved using CSS native variables ("CSS custom properties")
+// if all major browsers supported that CSS feature.
+// http://caniuse.com/#search=css%20var
+@mixin set_css_variable_font_size($value)
+{
+	html, body, button, input, textarea, select
+	{
+		font-size : $value;
+	}
+}
+
+// Could be achieved using CSS native variables ("CSS custom properties")
+// if all major browsers supported that CSS feature.
+// http://caniuse.com/#search=css%20var
+@mixin set_css_variable_input_width($value)
+{
+	select,
+	.rrui__text-input__input,
+	.date-picker
+	{
+		width : $value;
+	}
+}
+
+// Could be achieved using CSS native variables ("CSS custom properties")
+// if all major browsers supported that CSS feature.
+// http://caniuse.com/#search=css%20var
+//
+// (in "background content sections" padding and margin depend on each other)
+//
+@mixin set_css_variable_content_section_padding_and_margin($padding, $margin, $background_section_vertical_margin)
+{
+	.content-section, .content-section-padding
+	{
+		padding : $padding;
+	}
+
+	.content-section__errors
+	{
+		margin-bottom : $padding;
+	}
+
+	.content-section__errors--top
+	{
+		margin        : calc(-1 * #{$padding});
+		margin-bottom : $padding;
+		padding       : $padding;
+	}
+
+	.content-section--no-padding
+	{
+		padding : 0;
+
+		.content-section-header
+		{
+			margin-top : 0; // $padding;
+		}
+	}
+
+	.background-section
+	{
+		padding-left   : $padding;
+		padding-right  : $padding;
+		padding-top    : calc(#{$padding} - 2 * #{$margin});
+		padding-bottom : calc(#{$padding} - 2 * #{$margin});
+	}
+
+	.poster-profile__picture,
+	.poster-profile__name
+	{
+		left : calc(#{$padding} + #{$margin} / 2 + #{$margin} / 2);
+	}
+
+	@include xl
+	{
+		.poster-profile__tabs-container
+		{
+			position : relative;
+			top      : calc(-1 * #{$margin} / 2);
+		}
+	}
+
+	.content-section-header
+	{
+		margin        : calc(-1 * #{$padding});
+		margin-bottom : $padding;
+		padding-left  : $padding;
+		padding-right : $padding;
+	}
+
+	.content-section-divider
+	{
+		left  : $padding;
+		right : $padding;
+	}
+
+	.content-section,
+	.background-section,
+	.content-sections
+	{
+		margin : calc(#{$margin} / 2);
+	}
+
+	.background-section
+	{
+		margin-top    : $background_section_vertical_margin;
+		margin-bottom : $background_section_vertical_margin;
+	}
+
+	.sections
+	{
+		margin     : calc(#{$margin} / 2);
+		margin-top : calc(-#{$margin} / 2);
+
+		&:first-child
+		{
+			margin-top : calc(#{$margin} / 2);
+		}
+	}
+}
+
+// Could be achieved using CSS native variables ("CSS custom properties")
+// if all major browsers supported that CSS feature.
+// http://caniuse.com/#search=css%20var
+//
+@mixin set_profile_picture_size($size)
+{
+	.poster-profile__picture
+	{
+		width      : $size;
+		height     : $size;
+		min-width  : $size;
+		min-height : $size;
+	}
+
+	.poster-profile__name
+	{
+		margin-left : $size;
+	}
+
+	.poster-profile__background-picture-container
+	{
+		min-height : calc(#{$size} + var(--unit));
+	}
+}
+
+@mixin xxxxxxs
+{
+	@media all
+	{
+		@content;
+	}
+}
+
+@mixin xxxxxs
+{
+	@media all and (min-width: $extra-extra-extra-extra-extra-small-screen-min-width)
+	{
+		@content;
+	}
+}
+
+@mixin xxxxs
+{
+	@media all and (min-width: $extra-extra-extra-extra-small-screen-min-width)
+	{
+		@content;
+	}
+}
+
+@mixin xxxs
+{
+	@media all and (min-width: $extra-extra-extra-small-screen-min-width)
+	{
+		@content;
+	}
+}
+
+@mixin xxs
+{
+	@media all and (min-width: $extra-extra-small-screen-min-width)
+	{
+		@content;
+	}
+}
+
+@mixin xs
+{
+	@media all and (min-width: $extra-small-screen-min-width)
+	{
+		@content;
+	}
+}
+
+@mixin s
+{
+	@media all and (min-width: $small-screen-min-width)
+	{
+		@content;
+	}
+}
+
+@mixin m
+{
+	@media all and (min-width: $medium-screen-min-width)
+	{
+		@content;
+	}
+}
+
+@mixin l
+{
+	@media all and (min-width: $large-screen-min-width)
+	{
+		@content;
+	}
+}
+
+@mixin xl
+{
+	@media all and (min-width: $extra-large-screen-min-width)
+	{
+		@content;
+	}
+}
+
+@mixin xxl
+{
+	@media all and (min-width: $extra-extra-large-screen-min-width)
+	{
+		@content;
+	}
+}

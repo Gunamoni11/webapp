@@ -1,0 +1,15 @@
+{
+	"presets":
+	[
+		"node7",
+		"stage-2"
+	],
+
+	"plugins":
+	[
+		"transform-promise-to-bluebird",
+		"transform-es2015-destructuring",
+		"transform-object-rest-spread",
+		"transform-decorators-legacy"
+	]
+}

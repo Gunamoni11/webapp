@@ -1,0 +1,144 @@
+@import "constants.scss";
+
+.content-section
+{
+	// Disables margin collapse since it's not
+	// gonna work anyway in most cases.
+	border : 1px solid transparent;
+
+	background-color : var(--white-color);
+	border-bottom    : 1px solid var(--gray-color-darker);
+}
+
+.content-section--no-padding
+{
+	// padding : 0;
+
+	.content-section-header
+	{
+		margin-bottom : 0;
+		margin-left   : 0;
+		margin-right  : 0;
+	}
+}
+
+.content-section--busy
+{
+	cursor: wait;
+}
+
+.content-section-header
+{
+	padding-top      : 0.5em;
+	padding-bottom   : 0.45em;
+	border-bottom    : 1pt solid var(--gray-color);
+	font-size        : 1.3rem;
+	text-align       : left;
+	background-color : var(--gray-color-lightest);
+}
+
+.content-section-divider
+{
+	position         : absolute;
+	top              : 0;
+	height           : 1pt;
+	background-color : var(--gray-color);
+}
+
+// // This will be replaced with the contents of the mixin
+// // when CSS native variables will be supported in all major browsers.
+// // http://caniuse.com/#search=css%20var
+// @include set_css_variable_header_height(var(--header-height));
+
+.card, .rrui__select__options--expanded
+{
+	box-shadow: var(--shadow);
+}
+
+.content-section
+{
+	background-color : var(--white-color);
+}
+
+footer
+{
+	// can be removed later
+	position: relative;
+
+	// border-top: 1px solid $footer-border-color;
+
+	padding-top    : 1.3em;
+	padding-bottom : 1.2em;
+
+	padding-left  : 1em;
+	padding-right : 1em;
+
+	font-size: 0.8em;
+
+	> div
+	{
+		text-align: center;
+	}
+}
+
+.content
+{
+	flex-grow   : 1;
+	flex-shrink : 0;
+	flex-basis  : auto;
+}
+
+// This technique drops IE10-11 support.
+// https://github.com/philipwalton/flexbugs#3-min-height-on-a-flex-container-wont-apply-to-its-flex-items
+// They say it works in Edge though.
+//
+// Also "100vh" seems to introduce a window resizing bug in Chrome
+// when window height is max of all previous window heights.
+//
+.page
+{
+	display        : flex;
+	flex-direction : column;
+	min-height     : 100vh;
+}
+
+.page__text-content
+{
+	margin-top    : calc(var(--unit) * 2);
+	margin-bottom : calc(var(--unit) * 2);
+	margin-left   : calc(var(--unit) * 2);
+	margin-right  : calc(var(--unit) * 2);
+}
+
+@include s
+{
+	.page__text-content
+	{
+		margin-top    : calc(var(--unit) * 3);
+		margin-bottom : calc(var(--unit) * 3);
+		margin-left   : calc(var(--unit) * 3);
+		margin-right  : calc(var(--unit) * 3);
+	}
+}
+
+@include m
+{
+	.page__text-content
+	{
+		margin-top    : calc(var(--unit) * 4);
+		margin-bottom : calc(var(--unit) * 4);
+		margin-left   : calc(var(--unit) * 4);
+		margin-right  : calc(var(--unit) * 4);
+	}
+}
+
+@include l
+{
+	.page__text-content
+	{
+		margin-top    : calc(var(--unit) * 6);
+		margin-bottom : calc(var(--unit) * 6);
+		margin-left   : calc(var(--unit) * 6);
+		margin-right  : calc(var(--unit) * 6);
+	}
+}

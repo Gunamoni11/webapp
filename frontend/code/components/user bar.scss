@@ -1,0 +1,152 @@
+.user-bar
+{
+	position: absolute;
+	top   : 0;
+	right : 0;
+
+	display     : flex;
+	align-items : center;
+
+	height: 100%;
+
+	// // centers children vertically
+	// display     : flex;
+	// align-items : center;
+
+	.user-info
+	{
+		display         : flex;
+		flex-direction  : row;
+		justify-content : center;
+
+		min-height : 100%;
+		max-height : 100%;
+		height : 100%;
+
+		// .sign-out .rrui__button__button
+		// {
+		// 	color : var(--black-color);
+		// }
+
+		// .sign-out .rrui__button__button:active
+		// {
+		// 	color : var(--base-color-darker);
+		// }
+	}
+
+	.sign-in, .sign-out
+	{
+		height : 100%;
+
+		// margin-top   : var(--header-vertically-centered-text-margin-top);
+		margin-right : calc(var(--unit));
+	}
+
+	.sign-out-form
+	{
+		// // centers children vertically
+		// display         : flex;
+		// flex-direction  : column;
+		// justify-content : center;
+
+		button
+		{
+			color: inherit;
+		}
+	}
+
+	.sign-in
+	{
+		margin-right: calc(var(--unit) * 2);
+	}
+}
+
+.user-bar__name-and-picture
+{
+	display     : flex;
+	align-items : center;
+	// Black instead of white
+	color       : inherit;
+
+	&:active
+	{
+		color : inherit;
+	}
+}
+
+.user-bar__name
+{
+	// centers <a/> vertically
+	display         : flex;
+	flex-direction  : column;
+	justify-content : center;
+
+	margin-left  : calc(var(--unit) * 1);
+	margin-right : calc(var(--unit) * 2);
+
+	margin-top: var(--header-vertically-centered-text-margin-top);
+
+	white-space: nowrap;
+}
+
+.user-menu__entry
+{
+	display     : flex;
+	align-items : center;
+}
+
+.user-menu__icon
+{
+	width  : calc(var(--unit) * 3.5);
+	height : calc(var(--unit) * 3.5);
+
+	margin-bottom : var(--icon-liftup);
+	margin-right  : 0.5em;
+
+	// transition : var(--button-icon-transition);
+}
+
+.user-menu__entry:active
+{
+	.user-menu__icon
+	{
+		fill : var(--white-color);
+	}
+}
+
+.user-menu__entry--sign-out:active
+{
+	color : var(--white-color);
+}
+
+@include m
+{
+	.user-bar__name
+	{
+		display: flex;
+	}
+}
+
+.realtime-service-indicator
+{
+	width  : 0.6em;
+	height : 0.6em;
+	margin-right : 0.1em;
+	stroke : var(--white-color);
+}
+
+@include s
+{
+	.sign-in
+	{
+		margin-right : calc(var(--unit) * 2);
+	}
+}
+
+@include m
+{
+	.sign-in
+	{
+		margin-right: calc(var(--unit) * 2);
+	}
+}
